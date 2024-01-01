@@ -41,6 +41,20 @@
               cr dup spaces 10 stars
             1- dup 0= until drop quit ;
 
-( 6 )
+( 6 - first attempt )
+: triangle-up 9 21 1 do
+                       cr
+                       dup spaces 1-
+                       I stars
+                     2 +loop ;
+
+: triangle-down  0 1 19 do
+                          cr
+                          dup spaces 1+
+                          I stars
+                       -2 +loop ;
+
+: diamond 0 do triangle-up triangle-down loop cr ;
+
 ( 7 )
 ( 8 )
