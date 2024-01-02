@@ -56,5 +56,31 @@
 
 : diamond 0 do triangle-up triangle-down loop cr ;
 
+( leo brodie's version: a million times nicer )
+: triangle do cr
+             9 i - spaces
+             i 2 * 1+ stars
+           dup +loop
+           drop ;
+
+: lb-diamond  0 do 1 10 0 triangle
+                   -1 0 9 triangle
+                loop ;
+
 ( 7 )
+: r% 10 */ 5 + 10 / ;
+
+: doubled dup rot rot 21 1 do cr
+    ." YEAR " I 2 U.R
+    2dup r% + dup ."  BALANCE " .
+    rot 2dup 2 * > if
+                   cr cr ." MORE THAN DOUBLED IN " I . ." YEARS " LEAVE
+                 then rot rot
+             loop drop drop drop ;
+
 ( 8 )
+: ** dup 1 = if
+             drop
+           else
+             swap dup rot 1- 0 do over * loop
+           then ;
